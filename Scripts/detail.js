@@ -1,0 +1,1 @@
+const wondername= new URLSearchParams(window.location.search).get('name');
