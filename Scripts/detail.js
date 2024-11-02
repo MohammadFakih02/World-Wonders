@@ -9,6 +9,7 @@ if(wondername){
     .then(Response=>{
         const wonder =Response.data;
         const container= document.getElementById('wondercontainer');
+        container.classList.add('wonder-container')
 
         const name = document.createElement('h1');
         name.textContent=wonder.name;
@@ -19,8 +20,9 @@ if(wondername){
         wonder.links.images.forEach(element => {
             let image= document.createElement('img');
             image.src=element;
-            container.append(image);
+            imagecontainer.append(image);
         });
+        container.append(imagecontainer);
 
         const summary = document.createElement('p');
         summary.textContent=wonder.summary;
