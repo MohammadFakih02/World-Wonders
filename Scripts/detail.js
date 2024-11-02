@@ -5,7 +5,7 @@ const instance = axios.create({
   });
 
 if(wondername){
-    instance.get(`/${encodeURIComponent(wondername)}`)
+    instance.get(`/${wondername}`)
     .then(Response=>{
         const wonder =Response.data;
         const container= document.getElementById('wondercontainer');
