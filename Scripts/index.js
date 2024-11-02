@@ -14,7 +14,7 @@ axios.get('https://www.world-wonders-api.org/v0/wonders/')
             name.textContent = wonder.name;
             wonderCard.appendChild(name);
             
-            if (wonder.links.images && wonder.links.images.length > 0) {
+            if (wonder.links.images) {
                 const image = document.createElement('img');
                 image.src = wonder.links.images[0];
                 image.style.width = '100%';
