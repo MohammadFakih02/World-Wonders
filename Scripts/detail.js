@@ -1,13 +1,7 @@
-let wondername= new URLSearchParams(window.location.search).get('name');
-wondername=wondername.toLowerCase();
-const instance = axios.create({
-    baseURL: "https://www.world-wonders-api.org/v0/wonders/name",
-  });
+let wonder=localStorage.getItem('wonder');
+wonder=JSON.parse(wonder);
 
-if(wondername){
-    instance.get(`/${wondername}`)
-    .then(Response=>{
-        const wonder =Response.data;
+
         const container= document.getElementById('wondercontainer');
         container.classList.add('wonder-container')
 
@@ -28,9 +22,9 @@ if(wondername){
         summary.textContent=wonder.summary;
         container.appendChild(summary);
 
-        const location=document.createElement('p');
-        location.textContent=`Location : ${wonder.location}`;
-        container.appendChild(location);
+        const wonderlocation=document.createElement('p');
+        wonderlocation.textContent=`Location : ${wonder.location}`;
+        container.appendChild(wonderlocation);
 
         const buildyear=document.createElement('p');
         buildyear.textContent=`Build Year: ${wonder.buildyear}`;
@@ -46,5 +40,5 @@ if(wondername){
                 <a href="${wonder.links.trip_advisor}" target="_blank">TripAdvisor</a>
             `;
             container.appendChild(linksContainer);
-    })
-}
+
+

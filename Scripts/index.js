@@ -24,11 +24,11 @@ axios.get('https://www.world-wonders-api.org/v0/wonders/')
             
             wonderCard.addEventListener('click',()=>{
                 const wondername=wonder.name;
-                window.location.href=`detail.html?name=${wondername}`;
+                window.location.href=`detail.html`;
+                localStorage.setItem("wonder",JSON.stringify(wonder));
             })
         });
     })
     .catch(error => {
         console.error('Error fetching data:', error);
-        wondersContainer.textContent = 'Failed to load wonders data.';
     });
